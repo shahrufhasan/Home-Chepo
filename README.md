@@ -26,22 +26,7 @@ Home-Chepo is a modern e-commerce web application built with **Next.js**, **Fire
 
 ---
 
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/home-chepo.git
-cd home-chepo
-
-
-## Installation
-
-1. **Install dependencies:**
-
-```bash
-npm install
-
+## Demo Data
 
 | Field             | Sample Value                                                                                                                             |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,5 +36,27 @@ npm install
 | Price             | 499                                                                                                                                      |
 | Date              | 2025-11-25                                                                                                                               |
 | Image URL         | [https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg](https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg) |
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/home-chepo.git
+cd home-chepo
+npm i
+npm run dev
+
+
+
+
+
+
+
+
+
+
 
 
