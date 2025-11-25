@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Home-Chepo E-Commerce
 
-## Getting Started
+Home-Chepo is a modern e-commerce web application built with **Next.js**, **Firebase Authentication**, and **Tailwind CSS / DaisyUI**. It allows users to browse products, create their own products, and manage them. Authentication is handled via **Firebase Auth**, including email/password and Google login.
 
-First, run the development server:
+---
+
+## Features
+
+- Browse all products
+- Create your own product (only for logged-in users)
+- Manage products (update/delete)
+- Firebase Authentication (email/password & Google sign-in)
+- Mobile-friendly responsive design
+- User avatar with dropdown menu when logged in
+- SweetAlert2 confirmation dialogs for create/update/delete actions
+- About, Contact, Team, and Footer sections
+
+---
+
+## Tech Stack
+
+- **Frontend**: Next.js 13, React 18, Tailwind CSS, DaisyUI
+- **Authentication**: Firebase Authentication (No Admin SDK, no JWT)
+- **Database / API**: Local JSON Server (for demo) or your preferred backend
+- **Alerts**: SweetAlert2
+
+---
+
+## Installation
+
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/your-username/home-chepo.git
+cd home-chepo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Install dependencies:**
 
-## Learn More
+```bash
+npm install
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Field             | Sample Value                                                                                                                             |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Title             | Demo Sofa                                                                                                                                |
+| Short Description | A comfortable demo sofa                                                                                                                  |
+| Full Description  | This is a fully featured demo sofa for testing purposes                                                                                  |
+| Price             | 499                                                                                                                                      |
+| Date              | 2025-11-25                                                                                                                               |
+| Image URL         | [https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg](https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
