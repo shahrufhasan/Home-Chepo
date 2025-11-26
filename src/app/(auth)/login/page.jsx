@@ -3,9 +3,11 @@
 import React, { useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
+import Swal from "sweetalert2";
+import Link from "next/link";
 
 export default function LoginPage() {
-  const { singInUser, signInGoogle, loading } = useAuth();
+  const { signInUser, signInGoogle, loading } = useAuth();
   const router = useRouter();
   const [error, setError] = useState("");
 
@@ -16,30 +18,59 @@ export default function LoginPage() {
     const password = e.target.password.value;
 
     try {
-      await singInUser(email, password);
+      await signInUser(email, password);
+
+      Swal.fire({
+        title: "Success!",
+        text: "Logged in successfully",
+        icon: "success",
+        confirmButtonColor: "#FF7F07",
+      });
+
       router.push("/");
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
+      Swal.fire({
+        title: "Error!",
+        text: err.message,
+        icon: "error",
+        confirmButtonColor: "#FF7F07",
+      });
     }
   };
 
   const handleGoogleLogin = async () => {
     try {
       await signInGoogle();
+
+      Swal.fire({
+        title: "Success!",
+        text: "Logged in with Google",
+        icon: "success",
+        confirmButtonColor: "#FF7F07",
+      });
+
       router.push("/");
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
+      Swal.fire({
+        title: "Error!",
+        text: err.message,
+        icon: "error",
+        confirmButtonColor: "#FF7F07",
+      });
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
-      <div className="card w-96 bg-base-100 shadow-xl p-6">
-        <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
-
-        {error && <p className="text-red-500 text-center">{error}</p>}
+    <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
+      <div className="card w-full max-w-md bg-base-100 shadow-xl p-8">
+        <h2 className="text-3xl font-bold text-center mb-6">
+          Login to <span className="text-[#FF7F07]">Home-Chepo</span>
+        </h2>
 
         <form onSubmit={handleEmailLogin} className="space-y-4">
+          <label className="text-gray-500">Email</label>
           <input
             type="email"
             name="email"
@@ -47,7 +78,7 @@ export default function LoginPage() {
             className="input input-bordered w-full"
             required
           />
-
+          <label className="text-gray-500">Password</label>
           <input
             type="password"
             name="password"
@@ -56,7 +87,11 @@ export default function LoginPage() {
             required
           />
 
-          <button className="btn btn-primary w-full" disabled={loading}>
+          <button
+            type="submit"
+            className="btn bg-[#FF7F07] text-white w-full hover:bg-white hover:text-black transition-all"
+            disabled={loading}
+          >
             Log In
           </button>
         </form>
@@ -65,11 +100,14 @@ export default function LoginPage() {
 
         <button
           onClick={handleGoogleLogin}
-          className="btn btn-accent w-full"
+          className="btn bg-[#007FFF] text-white w-full hover:bg-white hover:text-black transition-all"
           disabled={loading}
         >
           Continue with Google
         </button>
+        <Link className="py-6 text-gray-500 text-center" href="/register">
+          Have no account ? <span className="text-blue-500">Register</span>
+        </Link>
       </div>
     </div>
   );
