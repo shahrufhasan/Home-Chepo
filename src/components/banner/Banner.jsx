@@ -30,6 +30,7 @@ export default function Banner() {
             src={images[current]}
             alt={`Banner ${current + 1}`}
             fill
+            unoptimized
             style={{ objectFit: "cover" }}
           />
         </motion.div>

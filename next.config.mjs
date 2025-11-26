@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    serverComponentsExternalPackages: ["firebase", "sweetalert2"], // if needed
+
+  images: {
+    unoptimized: true,
   },
-  // DO NOT include: output: "export"
+
+  serverExternalPackages: ["firebase", "sweetalert2"],
 };
 
 export default nextConfig;
