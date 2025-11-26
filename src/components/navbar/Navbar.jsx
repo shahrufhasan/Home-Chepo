@@ -4,12 +4,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import useAuth from "@/hooks/useAuth";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user, logOut } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -23,6 +24,15 @@ export default function Navbar() {
   };
 
   const navbarHeight = 70;
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Products", path: "/products" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
+  const isActive = (path) => pathname === path;
 
   return (
     <>
@@ -58,18 +68,18 @@ export default function Navbar() {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-20"
               >
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
-                <li>
-                  <Link href="/products">Products</Link>
-                </li>
-                <li>
-                  <Link href="/contact">Contact Us</Link>
-                </li>
+                {navLinks.map((link) => (
+                  <li key={link.path}>
+                    <Link
+                      href={link.path}
+                      className={`px-3 mx-1 py-2 rounded-md ${
+                        isActive(link.path) ? "bg-[#FF7F07] text-white" : ""
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -85,18 +95,18 @@ export default function Navbar() {
 
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/about">About</Link>
-              </li>
-              <li>
-                <Link href="/products">Products</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact Us</Link>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    href={link.path}
+                    className={`px-3 py-2 mx-1 rounded-md ${
+                      isActive(link.path) ? "bg-[#FF7F07] text-white" : ""
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

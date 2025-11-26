@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const images = ["/image1.png", "/image2.png", "/image3.png"];
+const images = ["/image6.png", "/image5.png", "/image4.png"];
 
 export default function Banner() {
   const [current, setCurrent] = useState(0);
@@ -16,7 +16,7 @@ export default function Banner() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden h-64 sm:h-80 md:h-96 lg:h-[500px]">
+    <div className="relative w-full overflow-hidden h-64 sm:h-80 md:h-96 lg:h-[800px] max-h-screen">
       <AnimatePresence>
         <motion.div
           key={current}
