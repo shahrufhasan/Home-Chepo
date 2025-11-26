@@ -9,7 +9,7 @@ export default function ManageProduct() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:4000/addedProducts");
+      const res = await fetch("https://home-chepo.vercel.app/addedProducts");
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -36,9 +36,12 @@ export default function ManageProduct() {
       if (!result.isConfirmed) return;
 
       try {
-        const res = await fetch(`http://localhost:4000/addedProducts/${id}`, {
-          method: "DELETE",
-        });
+        const res = await fetch(
+          `https://home-chepo.vercel.app/addedProducts/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (!res.ok)
           return Swal.fire({
@@ -101,7 +104,7 @@ export default function ManageProduct() {
 
     try {
       const res = await fetch(
-        `http://localhost:4000/addedProducts/${product._id}`,
+        `https://home-chepo.vercel.app/addedProducts/${product._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

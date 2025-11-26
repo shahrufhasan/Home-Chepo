@@ -21,7 +21,7 @@ export default function CreateNewProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:4000/addedProducts", {
+      const res = await fetch("https://home-chepo.vercel.app/addedProducts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

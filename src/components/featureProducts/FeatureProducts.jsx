@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "../productCard/ProductCard";
 
 async function getProducts() {
-  const res = await fetch("http://localhost:4000/products", {
+  const res = await fetch("https://home-chepo.vercel.app/products", {
     cache: "no-store",
   });
   const data = await res.json();

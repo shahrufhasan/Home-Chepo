@@ -12,7 +12,7 @@ export default function ProductsPage() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:4000/products");
+      const res = await fetch("https://home-chepo.vercel.app/products");
       const data = await res.json();
       setProducts(data);
       setLoading(false);
