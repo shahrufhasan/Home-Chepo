@@ -63,7 +63,7 @@ export default function CreateNewProduct() {
   };
 
   return (
-    <div className="py-16 h-screen">
+    <div className="py-16">
       <h1 className="text-gray-800 text-center  text-5xl font-bold pb-12">
         Add New <span className="text-[#FF7F07]"> Product</span>
       </h1>
